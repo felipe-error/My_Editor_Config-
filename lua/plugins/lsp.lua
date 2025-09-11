@@ -24,7 +24,8 @@ return {
 	    'lua_ls',
 	    'clangd',
 	    'biome',
-	    'html'
+	    'html',
+	    'cmake',
 	    },
 	    autocomplete = true
 	  }
@@ -32,20 +33,31 @@ return {
           ensure_installed = {},
 	  auto_update = true,
 	  run_on_start = true
-	})
-
+})
 	local lspconfig = require('lspconfig')
-
-	local capabilities = require('cmp_nvim_lsp').default_capabilities() 
+	local capabilities = require('cmp_nvim_lsp').default_capabilities()
 	local on_attach = function(client, buff)
 	  local bufopts = { noremap = true, silent = true, buffer = buff}
 	  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-	  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+ 	  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	end
-
 	local servers = {
           lua_ls = {
-            capabilities = capabilities
+            capabilities = capabilities,
+	    settings = {
+	      Lua = {
+		workspace = {
+		  library = {
+		    vim.env.VIMRUNTIME,
+                    vim.fn.stdpath('config') .. '\\xmake_api.lua'
+		  },
+                  globals = { 'vim' },
+		},
+		completion = {
+		  callSnippet = 'Replace'
+		}
+	      }
+	    }
 	  },
 	  clangd = {
             capabilities = capabilities
@@ -55,7 +67,10 @@ return {
 	  },
 	  html = {
             capabilities = capabilities
-	  }
+	  },
+	  cmake = {
+            capabilities = capabilities
+	  },
 	}
 
 
@@ -67,6 +82,6 @@ return {
 	end
        end
   }
-
 }
+
 
