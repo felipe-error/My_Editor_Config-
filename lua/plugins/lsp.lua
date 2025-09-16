@@ -4,20 +4,19 @@ return {
         'williamboman/mason-lspconfig',
         'neovim/nvim-lspconfig',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
-	{ 'j-hui/fidget.nvim', opts = {} },
 	 'b0o/schemastore.nvim',
       },
       config = function()
-         require('mason').setup({
-	    ui = {
-		icons = {
-		    package_installed = '✓',
-		    package_pending = '➜',
-		    package_uninstalled = '✗'
-		},
-		border = 'double'
-	    }
-	  })
+        require('mason').setup({
+	  ui = {
+	    icons = {
+	      package_installed = '✓',
+	      package_pending = '➜',
+	      package_uninstalled = '✗'
+	    },
+	    border = 'double'
+	  }
+	})
 
 	 require('mason-lspconfig').setup {
 	    ensure_installed = {

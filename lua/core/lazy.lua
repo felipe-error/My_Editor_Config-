@@ -32,6 +32,6 @@ require('lazy').setup({
   },
 
   ui = {
-   border = 'double' 
+   border = 'double'
   }
 })

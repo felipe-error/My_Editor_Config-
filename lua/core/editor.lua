@@ -16,3 +16,12 @@ vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 vim.opt.shortmess:append 'c'
 vim.cmd('set encoding=utf8')
 
+vim.notify = require('notify')
+vim.notify([[
+Telescope:
+<SPACE> + f = Abre o Diretorio                   
+<SPACE> + b = Abre o Buffer do nvim
+<SPACE> + s = Abre o Historico do notify
+<SPACE> + h = Abre as Help tags]])
+require("telescope").load_extension("notify")
+
