@@ -1,10 +1,14 @@
 return {
-  {"chrisgrieser/nvim-origami",
-    event = "VeryLazy",
+  {'chrisgrieser/nvim-origami',
+    event = 'VeryLazy',
     opts = {
       foldKeymaps = {
 		    setup = false,
-      }
+      },
+      autoFold = {
+        enabled = true,
+        kinds = { 'comment', 'imports' }, ---@type lsp.FoldingRangeKind[]
+      },
     },
 
     -- recommended: disable vim's auto-folding

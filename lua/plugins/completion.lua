@@ -22,7 +22,7 @@ return {
       local luasnip = require('luasnip')
       local lspkind = require('lspkind')
 
-      require("luasnip.loaders.from_vscode").lazy_load()
+      require('luasnip.loaders.from_vscode').lazy_load()
       cmp.setup({
 	sources = {
 	  { name = 'nvim_lsp' },
@@ -40,9 +40,9 @@ return {
 	},
 	formatting = {
           format = lspkind.cmp_format({
-            mode = "symbol_text",
+            mode = 'symbol_text',
             maxwidth = 50,
-            ellipsis_char = "...",
+            ellipsis_char = '...',
          })
         },
 	snippet = {

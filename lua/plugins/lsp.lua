@@ -4,7 +4,7 @@ return {
         'williamboman/mason-lspconfig',
         'neovim/nvim-lspconfig',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
-	 'b0o/schemastore.nvim',
+        'b0o/schemastore.nvim',
       },
       config = function()
         require('mason').setup({
@@ -24,10 +24,10 @@ return {
               'clangd',
               'biome',
               'html',
-              'cmake',
+              'neocmake',
               'glsl_analyzer',
               'zls',
-	    },
+	        },
       autocomplete = true
     }
 
@@ -54,7 +54,7 @@ return {
        }
        vim.lsp.config['asm'] = {
 	--[[settings = {
-	  assembler = "go",
+    assembler = "go",
           instruction_set = "x86/x86-64",
         }]]--
        }
@@ -62,7 +62,7 @@ return {
        vim.lsp.enable('clangd')
        vim.lsp.enable('biome')
        vim.lsp.enable('html')
-       vim.lsp.enable('cmake')
+       vim.lsp.enable('neocmake')
        vim.lsp.enable('glsl_analyzer')
        vim.lsp.enable('zls')
        vim.lsp.enable('asm_lsp')
